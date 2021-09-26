@@ -1,6 +1,6 @@
 # Movement Mechanics (build v1.0.0)
 
-Movement Mechanics based on Rigidbody
+Movement Mechanics based on Rigidbody and new Unity Input System
 
 ## Movement Mechanics for different controllers: 
 > * First person
