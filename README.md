@@ -8,13 +8,17 @@ Movement Mechanics based on Rigidbody and new Unity Input System
 > * TopDown
 
 
-## **Packages used:**
+## **Unity Registry packages used:**
 > 1. Animation Rigging
 > 2. Input System
 > 3. Cinemachine
 > 4. ProBuilder
 > 5. TextMeshPro
 > 6. QuickSearch
+
+## **Asset Store packages used:**
+> 1. ConsolePro
+> 2. OdinInspector
 
 ## Updates
 
