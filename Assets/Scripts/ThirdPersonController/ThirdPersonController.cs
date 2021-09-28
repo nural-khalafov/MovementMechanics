@@ -1,7 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace DZenEngine.Core.MovementMechanics
 {
@@ -15,6 +14,16 @@ namespace DZenEngine.Core.MovementMechanics
 
     public class ThirdPersonController : Controller
     {
+        public enum ControllerState
+        {
+            Grounded,
+            Sliding,
+            Falling,
+            Rising,
+            Sprinting,
+            Jumping
+        }
+
         public static ThirdPersonController Instance;
         [Header("Third Person View Types")]
         [Tooltip("Choose third person view type")]
@@ -22,8 +31,23 @@ namespace DZenEngine.Core.MovementMechanics
 
         [Header("Component References")]
         [Tooltip("References to attached components")]
-        public Transform PlayerTransform;
+        private Transform _playerTransform;
+        private Rigidbody _playerRigidbody;
+        private Animator _playerAnimator;
 
+        private void Awake()
+        {
+            _playerRigidbody = GetComponent<Rigidbody>();
+            _playerAnimator = GetComponent<Animator>();
+        }
+
+        public void Jump(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _playerRigidbody.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+            }
+        }
 
         public override Vector3 GetVelocity()
         {
